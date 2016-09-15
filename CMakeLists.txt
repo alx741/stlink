@@ -21,7 +21,7 @@ if (GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
 	# Working off a git repo, using git versioning
 	# Check if HEAD is pointing to a tag
 	execute_process (
-		COMMAND             "${GIT_EXECUTABLE}" describe --always
+		COMMAND             "${GIT_EXECUTABLE}" describe --tags
 		WORKING_DIRECTORY   "${PROJECT_SOURCE_DIR}"
 		OUTPUT_VARIABLE     STLINK_PACKAGE_VERSION
 		OUTPUT_STRIP_TRAILING_WHITESPACE)
