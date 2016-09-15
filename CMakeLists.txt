@@ -17,7 +17,8 @@ message(STATUS "Building on ${CMAKE_SYSTEM_NAME}")
 
 # Determine package version.
 find_package (Git QUIET)
-if (DEFINED ENV{TRAVIS_TAG} AND NOT "$ENV{TRAVIS_TAG}" STREQUAL "")
+if (DEFINED ENV{TRAVIS_TAG})
+	message(STATUS "Using Travis tag for STLINK_PACKAGE_VERSION")
 	set (STLINK_PACKAGE_VERSION "$ENV{TRAVIS_TAG}")
 elseif (GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
 	# Working off a git repo, using git versioning
