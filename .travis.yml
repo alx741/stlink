@@ -11,6 +11,7 @@ addons:
       - g++-5
       - gcc-5
 script:
+  - git fetch --tags
   - printenv
   - cmake --version
   - ./.travis.sh
